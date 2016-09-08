@@ -1,0 +1,1 @@
+python openerp-server --config=openerp-server.conf

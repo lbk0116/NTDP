@@ -1,0 +1,116 @@
+/* This css contains the styling specific to the 'normal mode'. (as opposite to the embedded mode) */
+/* In embedded mode [1], this stylesheet won't be loaded. */
+
+/* [1] The web client features an embedded mode in which the webclient */
+/*     or a part of it can be started in any element of any webpage host. */
+//顶部导航栏样式定制
+//定义主题颜色
+@mianColor:#D67911;
+@mianColorLight:#ff9c21;
+//定义默认字体颜色
+@fontColor9:#999;
+@fontColor4:#444;
+@fontColor6:#666;
+@hoverFontColor:#E85F2D;
+@activeFontColor:#E85F2D;
+
+//线性渐变函数2色
+.linnerGradient2(@a,@b,@c){
+    background-color: @c;
+    background-image: -webkit-linear-gradient(top, @a, @b);
+    background-image: -moz-linear-gradient(top, @a, @b);
+    background-image: -ms-linear-gradient(top, @a, @b);
+    background-image: -o-linear-gradient(top, @a, @b);
+    background-image: linear-gradient(to bottom, @a, @b);
+}
+//线性渐变函数3色
+.linnerGradient3(@a, @b, @c, @d){
+    background-color: @d;
+    background-image: -webkit-linear-gradient(left, @a, @b, @c);
+    background-image: -moz-linear-gradient(left, @a, @b, @c);
+    background-image: -ms-linear-gradient(left, @a, @b, @c);
+    background-image: -o-linear-gradient(left, @a, @b, @c);
+    background-image: linear-gradient(to right, @a, @b, @c);
+}
+
+
+//使用流程页面
+body{
+    div.discover{
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1049;
+        background-color: #000;
+        opacity: .5
+    }
+    div.discover1{
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1049;
+        opacity: 0.2;
+        background-color: #000;
+    }
+    div.tip{
+        position: absolute;
+        z-index: 1050;
+        left: 0px;top: 0px;
+        width: 177px;height:121px;
+        padding:50px 13px 9px;
+        font-size: 19px;
+        cursor:pointer;
+    }
+}
+
+//添加提示工具
+body{
+    .tipSelf{
+        display: none;
+        position: absolute;
+        z-index: 1070;
+        top: 118px;
+        left: 362px;
+        padding:5px 10px;
+        color:#fff;
+        font-weight: bold;
+        font-family: Helvetica,Arial,Microsoft Yahei,"微软雅黑",STXihei,"华文细黑",sans-serif;
+        background-color: #222;
+        border-radius: 6px;
+        span{
+            display: inline-block;
+            max-width: 250px;
+            overflow:hidden;
+            cursor: text;
+        }
+        b{
+            display: inline-block;
+            width: 16px;height:16px;
+            position: absolute;
+            right:-5px;top:-5px;
+            border-radius: 50%;
+            background-color: #e4393c;
+            color: #fff;
+            text-align: center;
+            line-height: 16px;
+            cursor: pointer;
+        }
+        i{
+            position: absolute;
+            z-index: 1071;
+            display: inline-block;
+            width:10px;height:10px;
+            bottom: -4px;left: 20px;
+            -webkit-transform:rotate(45deg);
+            -moz-transform:rotate(45deg);
+            -ms-transform:rotate(45deg);
+             -o-transform:rotate(45deg);
+            transform: rotateZ(45deg);
+            background-color:  #222;
+        }
+    }
+}
