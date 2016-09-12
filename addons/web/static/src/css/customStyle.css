@@ -39,14 +39,14 @@ body #oe_main_menu_navbar ul.nav > li > a:hover,
 body #oe_main_menu_navbar ul.nav li > button:hover {
   background-color: #f8f8f8;
   color: #1487e6;
-  border-radius: 6px 6px 0px 0px;
+  border-radius: 4px 4px 0px 0px;
 }
 body #oe_main_menu_navbar ul.nav > li.active > a,
 body #oe_main_menu_navbar ul.nav li.active > button,
 body #oe_main_menu_navbar ul.nav li.open > a {
   background-color: #f8f8f8;
   color: #1487e6;
-  border-radius: 6px 6px 0px 0px;
+  border-radius: 4px 4px 0px 0px;
 }
 body #oe_main_menu_navbar ul.nav > li > ul.dropdown-menu {
   background-color: #f8f8f8;
