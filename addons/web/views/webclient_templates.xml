@@ -23,8 +23,10 @@
             <script type="text/javascript" src="/web/static/lib/qweb/qweb2.js"></script>
             <script type="text/javascript" src="/web/static/src/js/openerpframework.js"></script>
             <script type="text/javascript" src="/web/static/src/js/tour.js"></script>
-
             <link rel="stylesheet" href="/web/static/lib/fontawesome/css/font-awesome.css"/>
+			<!-- 自定义样式脚本 -->
+			<link rel="stylesheet" href="/web/static/src/css/customStyle.css" />
+			<script type="text/javascript" src="/web/static/src/js/customScript.js"></script>
         </template>
 
         <template id="jqueryui_conflict" name="jquery.ui.conflict">
@@ -126,7 +128,6 @@
                     <title>Nantian</title>
                     <link rel="shortcut icon" href="/web/static/src/img/favicon.ico" type="image/x-icon"/>
                     <link rel="stylesheet" href="/web/static/src/css/full.css" />
-                    <link rel="stylesheet" href="/web/static/src/css/customStyle.css" />
                     <t t-raw="head or ''"/>
                 </head>
                 <body t-att-class="body_classname">
@@ -240,7 +241,6 @@
                         </tr>
                     </table>
                 </div>
-                <script type="text/javascript" src="/web/static/src/js/customScript.js"></script>
             </t>
         </template>
 
