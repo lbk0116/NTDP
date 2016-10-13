@@ -4,3 +4,7 @@
 .idea/
 workspace.xml
 myaddons/
+
+openerp-server.conf
+
+start.bat
