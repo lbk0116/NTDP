@@ -4,13 +4,9 @@
 /* [1] The web client features an embedded mode in which the webclient */
 /*     or a part of it can be started in any element of any webpage host. */
 body nav.navbar {
-  background-color: #1487e6;
-  background-image: -webkit-linear-gradient(top, #76b9f0 0%, #1487e6 88%, #0a6ec8 90%, #0a6ec8 100%);
-  background-image: -moz-linear-gradient(top, #76b9f0 0%, #1487e6 88%, #0a6ec8 90%, #0a6ec8 100%);
-  background-image: -ms-linear-gradient(top, #76b9f0 0%, #1487e6 88%, #0a6ec8 90%, #0a6ec8 100%);
-  background-image: -o-linear-gradient(top, #76b9f0 0%, #1487e6 88%, #0a6ec8 90%, #0a6ec8 100%);
-  background-image: linear-gradient(to bottom, #76b9f0 0%, #1487e6 88%, #0a6ec8 90%, #0a6ec8 100%);
+  background-color: #2B303E;
   border: none;
+  box-shadow: #5a5a5a 0px 1px 5px 0px;
 }
 body nav.navbar .navbar-header .navbar-toggle {
   border: none;
@@ -29,27 +25,40 @@ body #oe_main_menu_navbar ul.nav li > button {
   font-weight: bold;
   font-family: Helvetica, Arial, Microsoft Yahei, "微软雅黑", STXihei, "华文细黑", sans-serif;
   background-color: transparent;
-  margin: 0px 5px;
   padding: 12px 16px;
+}
+body #oe_main_menu_navbar ul.nav > li > a span:after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0%;
+  margin-top: 2px;
+  -moz-transition: width 0.3s ease-in;
+  -webkit-transition: width 0.3s ease-in;
+  -o-transition: width 0.3s ease-in;
+  transition: width 0.3s ease-in;
+  background-color: #ff9c21;
 }
 body #oe_main_menu_navbar ul.nav li > button {
   padding: 10px 20px;
 }
 body #oe_main_menu_navbar ul.nav > li > a:hover,
 body #oe_main_menu_navbar ul.nav li > button:hover {
-  background-color: #f8f8f8;
-  color: #1487e6;
-  border-radius: 4px 4px 0px 0px;
+  color: #ff9c21;
+}
+body #oe_main_menu_navbar ul.nav > li > a:hover span:after,
+body #oe_main_menu_navbar ul.nav li > button:hover span:after {
+  width: 100%;
 }
 body #oe_main_menu_navbar ul.nav > li.active > a,
 body #oe_main_menu_navbar ul.nav li.active > button,
 body #oe_main_menu_navbar ul.nav li.open > a {
-  background-color: #f8f8f8;
-  color: #1487e6;
-  border-radius: 4px 4px 0px 0px;
+  color: #ff9c21;
 }
-body #oe_main_menu_navbar ul.nav > li > ul.dropdown-menu {
-  background-color: #f8f8f8;
+body #oe_main_menu_navbar ul.nav > li.active > a span:after,
+body #oe_main_menu_navbar ul.nav li.active > button span:after,
+body #oe_main_menu_navbar ul.nav li.open > a span:after {
+  width: 100%;
 }
 body #oe_main_menu_navbar ul.nav > li > ul.dropdown-menu li a,
 body #oe_main_menu_navbar ul.nav > li > ul.dropdown-menu li button {
@@ -62,8 +71,10 @@ body #oe_main_menu_navbar ul.nav > li > ul.dropdown-menu li button {
 }
 body #oe_main_menu_navbar ul.nav > li > ul.dropdown-menu li a:hover,
 body #oe_main_menu_navbar ul.nav > li > ul.dropdown-menu li button:hover {
-  background-color: #f8f8f8;
-  color: #1487e6;
+  color: #ff9c21;
+}
+body #oe_main_menu_navbar ul.nav #oe_topbar_imbutton_icon:hover {
+  color: #ff9c21;
 }
 body .openerp .oe_searchview .oe_searchview_clear {
   right: 76px;
@@ -211,7 +222,7 @@ body .openerp .oe_searchview .oe_searchview_unfold_drawer::after {
 .navbar span.oe_topbar_name {
   line-height: 15px;
   position: relative;
-  top: 3px;
+  top: 5px;
 }
 body .openerp .oe_application .oe_form_sheetbg {
   background: url("../img/bgimg.png");
