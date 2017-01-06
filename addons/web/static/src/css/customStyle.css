@@ -249,3 +249,11 @@ body #wrapwrap main > div.container {
     margin: 60px 20% 60px 50%;
   }
 }
+div.oe_view_manager_sidebar {
+  position: relative;
+}
+div.oe_view_manager_sidebar button.backBtnSelf {
+  position: absolute;
+  top: 1px;
+  left: 170px;
+}

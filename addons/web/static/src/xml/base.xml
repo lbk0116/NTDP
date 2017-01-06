@@ -489,7 +489,9 @@
                         <div class="oe_view_manager_buttons"/>
                 </td>
                 <td colspan="2">
-                        <div class="oe_view_manager_sidebar"/>
+                    <div class="oe_view_manager_sidebar">
+                        <button type="button" class="backBtnSelf">返回</button>
+                    </div>
                 </td>
                 <td>
                     <ul class="oe_view_manager_switch oe_button_group oe_right">

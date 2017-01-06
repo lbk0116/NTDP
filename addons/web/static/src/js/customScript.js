@@ -112,4 +112,8 @@ $(document).ready(function () {
             .next("ul.nav").css("display","none");
         red();
     });
+    //自定义返回按钮动作
+    $("body").on("click","button.backBtnSelf",function(){
+        window.history.go(-1);
+    });
 });
