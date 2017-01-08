@@ -255,5 +255,10 @@ div.oe_view_manager_sidebar {
 div.oe_view_manager_sidebar button.backBtnSelf {
   position: absolute;
   top: 1px;
-  left: 170px;
+  left: 147px;
+}
+div.oe_view_manager_sidebar a.exportList {
+  position: absolute;
+  top: 0px;
+  left: -118px;
 }

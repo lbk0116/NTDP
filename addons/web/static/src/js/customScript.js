@@ -116,4 +116,19 @@ $(document).ready(function () {
     $("body").on("click","button.backBtnSelf",function(){
         window.history.go(-1);
     });
+    //自定义导出链接按钮
+    $("body").on("click","a.exportList",function(e){
+        var e=e||event;
+        if(e.preventDefault){
+            e.preventDefault();
+        }else{
+            e.returnValue = false;
+        }
+        $("ul.oe_dropdown_menu .oe_sidebar_action_a").each(function(i,v){
+            var _html=$(v).html().trim();
+            if(_html=="导出"||_html=="Export"){
+                $(v).trigger("click");
+            }
+        });
+    });
 });

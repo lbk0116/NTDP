@@ -605,6 +605,13 @@
 </t>
 
 <t t-name="Sidebar">
+    <!-- 自定义导出按钮-->
+    <t t-foreach="widget.items.other" t-as="i">
+        <t t-if="i.label == '导出' ||i.label == 'Export'">
+            <a href="exportList" class="exportList oe_bold oe_list_button_import">  导出</a>
+        </t>
+    </t>
+
     <div class="oe_sidebar">
         <t t-foreach="widget.sections" t-as="section">
             <div class="oe_form_dropdown_section">
