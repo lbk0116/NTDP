@@ -289,6 +289,20 @@ openerp.base_import = function (instance) {
                 width: 'resolve',
                 dropdownCssClass: 'oe_import_selector'
             });
+            //自定义导入表头
+            var res={};
+            $.each(result.fields,function(i,v){
+                res[v.string]= v.id;
+            });
+            $.each($fields,function(i,v){
+                var val=res[result["headers"][i]];
+                if(val){
+                    $(v).val(val);
+                    $(v).siblings(".select2-container")
+                        .find("a span.select2-chosen")
+                        .html(result["headers"][i]);
+                }
+            });
         },
         generate_fields_completion: function (root) {
             var basic = [];
