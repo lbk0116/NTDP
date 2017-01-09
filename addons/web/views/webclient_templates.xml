@@ -148,7 +148,9 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right oe_user_menu_placeholder" style="display: none;"/>
-            <ul class="nav navbar-nav navbar-right oe_systray" style="display: none;"/>
+            <ul class="nav navbar-nav navbar-right oe_systray" style="display: none;">
+                <li><a href="#" class="backBtnSelf">返回</a></li>
+            </ul>
         </template>
         <template id="web.menu_secondary">
             <a class="oe_logo" t-att-href="'/web/?debug' if debug else '/web'">
