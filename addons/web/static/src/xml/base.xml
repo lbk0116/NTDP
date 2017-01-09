@@ -591,10 +591,16 @@
         </button>
         -->
         <li>
+            <a class="oe_i" type="button" data-pager-action="first">((</a>
+        </li>
+        <li>
             <a class="oe_i" type="button" data-pager-action="previous">(</a>
         </li>
         <li>
             <a class="oe_i" type="button" data-pager-action="next">)</a>
+        </li>
+        <li>
+            <a class="oe_i" type="button" data-pager-action="last">))</a>
         </li>
         <!--
         <button class="oe_button oe_button_pager" type="button" data-pager-action="last">
