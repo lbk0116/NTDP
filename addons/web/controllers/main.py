@@ -15,6 +15,8 @@ import os
 import re
 import simplejson
 import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 import time
 import urllib2
 import zlib
