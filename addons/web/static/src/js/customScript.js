@@ -113,6 +113,7 @@ $(document).ready(function () {
         red();
     });
     //自定义返回按钮动作
+    console.log("//自定义返回按钮动作");
     $("body").on("click","a.backBtnSelf",function(){
         var url=window.location.href;
         if(/menu_id=/.exec(url)!==null){
