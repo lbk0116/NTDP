@@ -5,7 +5,6 @@
 workspace.xml
 myaddons/
 myapps/
-
-openerp-server.conf
+addons/
 
 start.bat
