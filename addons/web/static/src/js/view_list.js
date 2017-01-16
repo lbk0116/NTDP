@@ -1051,7 +1051,7 @@ instance.web.ListView.List = instance.web.Class.extend( /** @lends instance.web.
             .delegate('a', 'click', function (e) {
                 e.stopPropagation();
             })
-            .delegate('tr', 'click', function (e) {
+            .delegate('tr', 'dblclick', function (e) {
                 var row_id = self.row_id(e.currentTarget);
                 if (row_id) {
                     e.stopPropagation();
