@@ -716,8 +716,13 @@ instance.web.ListView = instance.web.View.extend( /** @lends instance.web.ListVi
      * @param {instance.web.DataSet} dataset dataset in which the record is available (may not be the listview's dataset in case of nested groups)
      */
     do_activate_record: function (index, id, dataset, view) {
+        //改变form视图动作模式
+        var origin=window.location.origin,
+            pathname=window.location.pathname,
+            hash=window.location.hash.replace(/page=\d+&limit=\d+&view_type=list/,"id="+id+"&view_type=form");
+        window.open(origin+pathname+hash,"_blank");
         this.dataset.ids = dataset.ids;
-        this.select_record(index, view);
+        //this.select_record(index, view);
     },
     /**
      * Handles signal for the addition of a new record (can be a creation,
