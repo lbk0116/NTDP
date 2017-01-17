@@ -1051,16 +1051,71 @@ instance.web.ListView.List = instance.web.Class.extend( /** @lends instance.web.
             .delegate('a', 'click', function (e) {
                 e.stopPropagation();
             })
-            .delegate('tr', 'dblclick', function (e) {
-                var row_id = self.row_id(e.currentTarget);
-                if (row_id) {
-                    e.stopPropagation();
-                    if (!self.dataset.select_id(row_id)) {
-                        throw new Error(_t("Could not find id in dataset"));
+            .delegate('tr', 'mousedown', function (e) {
+                var tar= e.target;
+                var html=$('<div class="right_menu"><ul>' +
+                '<li><a href="form">详细信息</a></li>' +
+                '<li><a href="other">其他</a></li>' +
+                '</ul></div>');
+                html.find("li>a").click(e,function(eA){
+                    var eA=eA||event;
+                    if(eA.preventDefault){
+                        eA.preventDefault();
+                    }else{
+                        eA.returnValue = false;
                     }
-                    self.row_clicked(e);
+                    if($(this).attr("href")=="form"){
+                        jumpForm(eA.data);
+                    }
+                    $("div.right_menu").remove();
+
+                });
+                if(e.buttons===2){
+                    $("div.right_menu").remove();
+                    $("body").append(html);
+                    noright(html[0]);
+                    $("div.right_menu").css({
+                        top: e.pageY+"px",
+                        left: e.pageX+"px"
+                    });
+                }else{
+                    $("div.right_menu").remove();
+                }
+                function jumpForm(even){
+                    var row_id = self.row_id(even.currentTarget);
+                    if (row_id) {
+                        even.stopPropagation();
+                        if (!self.dataset.select_id(row_id)) {
+                            throw new Error(_t("Could not find id in dataset"));
+                        }
+                        self.row_clicked(even);
+                    }
                 }
             });
+        //禁用右键菜单
+        function noright(obj) {
+            if (obj) {
+                obj.oncontextmenu  =  function() {
+                    return false;
+                }
+                obj.ondragstart  =  function() {
+                    return false;
+                }
+                //obj.onselectstart  =  function() {//允许复制
+                //    return false;
+                //}
+                //obj.onselect  =  function() {
+                //    obj.selection.empty();
+                //}
+                //obj.oncopy  =  function() {
+                //    obj.selection.empty();
+                //}
+                //obj.onbeforecopy  =  function() {
+                //    return false;
+                //}
+            }
+        }
+        noright(this.$current[0]);
     },
     row_clicked: function (e, view) {
         $(this).trigger(
