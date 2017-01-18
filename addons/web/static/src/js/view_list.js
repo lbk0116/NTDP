@@ -144,8 +144,8 @@ instance.web.ListView = instance.web.View.extend( /** @lends instance.web.ListVi
             'action': function (e, action_name, id, callback) {
                 self.do_button_action(action_name, id, callback);
             },
-            'row_link': function (e, id, dataset, view) {
-                self.do_activate_record(dataset.index, id, dataset, view);
+            'row_link': function (e, id, dataset, d, view) {
+                self.do_activate_record(dataset.index, id, dataset, d, view);
             }
         });
     },
@@ -715,14 +715,21 @@ instance.web.ListView = instance.web.View.extend( /** @lends instance.web.ListVi
      * @param {Object} id identifier of the activated record
      * @param {instance.web.DataSet} dataset dataset in which the record is available (may not be the listview's dataset in case of nested groups)
      */
-    do_activate_record: function (index, id, dataset, view) {
+    do_activate_record: function (index, id, dataset, d, view) {
         //改变form视图动作模式
-        var origin=window.location.origin,
-            pathname=window.location.pathname,
-            hash=window.location.hash.replace(/page=\d+&limit=\d+&view_type=list/,"id="+id+"&view_type=form");
-        window.open(origin+pathname+hash,"_blank");
-        this.dataset.ids = dataset.ids;
-        //this.select_record(index, view);
+        if(d){
+            this.dataset.ids = dataset.ids;
+            this.select_record(index, view);
+        }else{
+            var origin=window.location.origin,
+                pathname=window.location.pathname,
+                hash=window.location.hash.replace(/page=\d+&limit=\d+&view_type=list/,"id="+id+"&view_type=form");
+            window.open(origin+pathname+hash,"_blank");
+        }
+        /*源码
+        * this.dataset.ids = dataset.ids;
+         this.select_record(index, view);
+        * */
     },
     /**
      * Handles signal for the addition of a new record (can be a creation,
@@ -1052,9 +1059,9 @@ instance.web.ListView.List = instance.web.Class.extend( /** @lends instance.web.
                 e.stopPropagation();
             })
             .delegate('tr', 'mousedown', function (e) {
-                var tar= e.target;
+                var isDialog=$(this).parents("div.modal-body").length;
                 var html=$('<div class="right_menu"><ul>' +
-                '<li><a href="form">详细信息</a></li>' +
+                '<li><a href="form">'+(isDialog?"选择该条数据":"查看详细")+'</a></li>' +
                 '<li><a href="other">其他</a></li>' +
                 '</ul></div>');
                 html.find("li>a").click(e,function(eA){
@@ -1065,7 +1072,7 @@ instance.web.ListView.List = instance.web.Class.extend( /** @lends instance.web.
                         eA.returnValue = false;
                     }
                     if($(this).attr("href")=="form"){
-                        jumpForm(eA.data);
+                        jumpForm(eA.data,isDialog);
                     }
                     $("div.right_menu").remove();
 
@@ -1081,17 +1088,28 @@ instance.web.ListView.List = instance.web.Class.extend( /** @lends instance.web.
                 }else{
                     $("div.right_menu").remove();
                 }
-                function jumpForm(even){
+                function jumpForm(even,d){
                     var row_id = self.row_id(even.currentTarget);
                     if (row_id) {
                         even.stopPropagation();
                         if (!self.dataset.select_id(row_id)) {
                             throw new Error(_t("Could not find id in dataset"));
                         }
-                        self.row_clicked(even);
+                        self.row_clicked(even,d);
                     }
                 }
             });
+            //修改之前的源码
+            /*.delegate('tr', 'click', function (event) {
+                var row_id = self.row_id(event.currentTarget);
+                if (row_id) {
+                    event.stopPropagation();
+                    if (!self.dataset.select_id(row_id)) {
+                        throw new Error(_t("Could not find id in dataset"));
+                    }
+                    self.row_clicked(event);
+                }
+            });*/
         //禁用右键菜单
         function noright(obj) {
             if (obj) {
@@ -1117,11 +1135,11 @@ instance.web.ListView.List = instance.web.Class.extend( /** @lends instance.web.
         }
         noright(this.$current[0]);
     },
-    row_clicked: function (e, view) {
+    row_clicked: function (e, d, view) {
         $(this).trigger(
             'row_link',
             [this.dataset.ids[this.dataset.index],
-             this.dataset, view]);
+             this.dataset, d, view]);
     },
     render_cell: function (record, column) {
         var value;
