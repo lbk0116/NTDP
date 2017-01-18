@@ -1072,21 +1072,25 @@ instance.web.ListView.List = instance.web.Class.extend( /** @lends instance.web.
                         eA.returnValue = false;
                     }
                     if($(this).attr("href")=="form"){
-                        jumpForm(eA.data,isDialog);
+                        jumpForm(eA.data,0);
                     }
                     $("div.right_menu").remove();
 
                 });
-                if(e.buttons===2){
-                    $("div.right_menu").remove();
-                    $("body").append(html);
-                    noright(html[0]);
-                    $("div.right_menu").css({
-                        top: e.pageY+"px",
-                        left: e.pageX+"px"
-                    });
+                if(isDialog){
+                    e.buttons===1&&jumpForm(e,1);
                 }else{
-                    $("div.right_menu").remove();
+                    if(e.buttons===2){
+                        $("div.right_menu").remove();
+                        $("body").append(html);
+                        noright(html[0]);
+                        $("div.right_menu").css({
+                            top: e.pageY+"px",
+                            left: e.pageX+"px"
+                        });
+                    }else{
+                        $("div.right_menu").remove();
+                    }
                 }
                 function jumpForm(even,d){
                     var row_id = self.row_id(even.currentTarget);
