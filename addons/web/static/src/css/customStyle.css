@@ -262,6 +262,29 @@ body #wrapwrap main > div.container {
   top: 55px;
   left: 112px;
 }
+body {
+  /*div.openerp{
+        table.oe_list_content{
+            >tbody{
+               >tr{
+                   >td.oe_list_field_cell{
+                       white-space: nowrap;
+                   }
+                   td{
+                       white-space: nowrap;
+                   }
+               }
+            }
+            >thead{
+                >tr{
+                    th{
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }
+    }*/
+}
 body div.right_menu {
   box-shadow: 2px 2px 3px #ddd;
   border: 1px solid #ddd;
@@ -283,13 +306,4 @@ body div.right_menu ul li {
 }
 body div.right_menu ul li a {
   color: #7C7BAD;
-}
-body div.openerp table.oe_list_content > tbody > tr > td.oe_list_field_cell {
-  white-space: nowrap;
-}
-body div.openerp table.oe_list_content > tbody > tr td {
-  white-space: nowrap;
-}
-body div.openerp table.oe_list_content > thead > tr th {
-  white-space: nowrap;
 }
