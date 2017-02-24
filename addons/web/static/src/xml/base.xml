@@ -842,6 +842,7 @@
             </div>
             <button t-if="widget.is_action_enabled('create')"
                 type="button" class="oe_button oe_form_button_create" accesskey="C">Create</button>
+            <button type="button" class="oe_button back_btn_self">返回</button>
         </span>
         <span class="oe_form_buttons_edit">
             <button type="button" class="oe_button oe_form_button_save oe_highlight" accesskey="S">Save</button>

@@ -249,11 +249,6 @@ body #wrapwrap main > div.container {
     margin: 60px 20% 60px 50%;
   }
 }
-.navbar-nav a.backBtnSelf:before {
-  margin-right: 4px;
-  font-family: FontAwesome;
-  content: "\f053";
-}
 .oe_view_manager_header tr.oe_header_row {
   position: relative;
 }

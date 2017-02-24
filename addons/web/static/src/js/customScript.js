@@ -113,13 +113,12 @@ $(document).ready(function () {
         red();
     });
     //自定义返回按钮动作
-    $("body").on("click","a.backBtnSelf",function(){
-        var url=window.location.href;
-        if(/menu_id=/.exec(url)!==null){
-            window.history.go(-1);
-        }else{
-            window.history.go(-2);
-        }
+    $("body").on("click","button.back_btn_self",function(){
+        var url = openerp.web.data.prevUrl;
+        window.open(url,"_self");
+        setTimeout(function(){
+            window.open(url,"_self");
+        },500);
     });
     //自定义导出链接按钮
     $("body").on("click","a.exportList",function(e){
