@@ -486,12 +486,12 @@
             </tr>
             <tr class="oe_header_row">
                 <td>
-                        <div class="oe_view_manager_buttons"/>
-                </td>
-                <td colspan="2">
-                    <div class="oe_view_manager_sidebar" />
+                    <div class="oe_view_manager_buttons"/>
                 </td>
                 <td>
+                    <div class="oe_view_manager_sidebar" />
+                </td>
+                <td colspan="2">
                     <ul class="oe_view_manager_switch oe_button_group oe_right">
                         <t t-if="widget.views_src.length > 1" t-foreach="widget.views_src" t-as="view">
                           <li class="oe_e">
