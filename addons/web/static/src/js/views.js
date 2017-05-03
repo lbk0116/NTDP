@@ -9,8 +9,6 @@ openerp.web.views = {};
 var QWeb = instance.web.qweb,
     _t = instance.web._t;
 
-//用来保存自定义动作函数
-instance.web.actionList=[];
 
 instance.web.ActionManager = instance.web.Widget.extend({
     init: function(parent) {
@@ -951,11 +949,6 @@ instance.web.ViewManagerAction = instance.web.ViewManager.extend({
         var self = this,
             searchview_loaded,
             search_defaults = {};
-
-		//处理自定义启动函数
-        _.each(instance.web.actionList,function(action){
-            action.start(instance);
-        });
 
         _.each(this.action.context, function (value, key) {
             var match = /^search_default_(.*)$/.exec(key);
