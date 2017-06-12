@@ -168,10 +168,12 @@ instance.web.ListView = instance.web.View.extend( /** @lends instance.web.ListVi
      */
     style_for: function (record) {
         var len, style= '';
-
+        var date_after3M = new Date();
+        date_after3M.setMonth(date_after3M.getMonth()+3);
         var context = _.extend({}, record.attributes, {
             uid: this.session.uid,
-            current_date: new Date().toString('yyyy-MM-dd')
+            current_date: new Date().toString('yyyy-MM-dd'),
+            date_after3M: date_after3M.toString('yyyy-MM-dd')
             // TODO: time, datetime, relativedelta
         });
         var i;
